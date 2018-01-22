@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 #info for base url for CISOC and SKY JIRA
 
-jiraBaseUrl_cisco = 'http://spvss-jira.cisco.com/rest/api/'
-jiraBaseUrl_sky ='https://www.stb.bskyb.com/jira/rest/api/'
+jiraBaseUrl_xyz = 'http://www.xyz.com/rest/api/'
+jiraBaseUrl_abc ='https://www.abc.com/jira/rest/api/'
 jiraRestVersion = 'latest'
-jiraUrl_cisco = jiraBaseUrl_cisco + jiraRestVersion
-jiraUrl_sky=jiraBaseUrl_sky + jiraRestVersion
+jiraUrl_cisco = jiraBaseUrl_xyz + jiraRestVersion
+jiraUrl_sky=jiraBaseUrl_abc + jiraRestVersion
 startAt=0
 maxResults=1000
 FirstJira='NGDEV-2'
