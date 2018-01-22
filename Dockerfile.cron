@@ -1,0 +1,20 @@
+FROM ubuntu:14.04
+RUN apt-get update  && \
+    apt-get install -y python && \
+    apt-get install -y python-pip && \
+    pip install requests==2.13.0
+
+# Bundle app source
+RUN mkdir -p /opt/data && mkdir -p /opt/app/src
+RUN mkdir -p /opt/app/Certificate
+COPY src/* /opt/app/src/
+COPY Certificate/* /opt/app/Certificate/
+ADD src/crontab /etc/cron.d/jira-cron
+
+RUN chmod 0644 /etc/cron.d/jira-cron  && \
+    touch /var/log/cron.log && \
+    chmod +x /opt/app/src/run.sh
+
+WORKDIR /opt/app/src
+# Run the cron and tail the log
+CMD cron && tail -f /var/log/cron.log
